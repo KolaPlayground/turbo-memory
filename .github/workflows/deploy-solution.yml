@@ -24,3 +24,4 @@ jobs:
           client-secret: ${{ secrets.CLIENT_SECRET }}
           tenant-id: ${{ secrets.TENANT_ID }}
           solution-file: contoso_university_core_managed.zip
+          authentication-type: clientsecret
