@@ -20,6 +20,7 @@ jobs:
       - name: List downloaded files
         shell: powershell
         run: Get-ChildItem -Recurse
+      - uses: microsoft/powerplatform-actions/actions-install@v1
       - uses: microsoft/powerplatform-actions/import-solution@v1
         with:
           environment-url: https://kolapg.crm4.dynamics.com/
