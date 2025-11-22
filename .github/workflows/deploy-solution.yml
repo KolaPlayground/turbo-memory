@@ -20,6 +20,7 @@ jobs:
       - uses: microsoft/powerplatform-actions/import-solution@v0
         with:
           environment-url: https://kolapg.crm4.dynamics.com/
-          user-name: ${{ secrets.USERNAME }}
-          password-secret: ${{ secrets.PASSWORD }}
+          client-id: ${{ secrets.CLIENT_ID }}
+          client-secret: ${{ secrets.CLIENT_SECRET }}
+          tenant-id: ${{ secrets.TENANT_ID }}
           solution-file: contoso_university_core_managed.zip
