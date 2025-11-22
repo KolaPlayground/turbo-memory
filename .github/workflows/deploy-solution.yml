@@ -17,6 +17,9 @@ jobs:
         with:
           workflow: pack-solution.yml
           name: packed-solution
+      - name: List downloaded files
+        shell: powershell
+        run: Get-ChildItem -Recurse
       - uses: microsoft/powerplatform-actions/import-solution@v0
         with:
           environment-url: https://kolapg.crm4.dynamics.com/
@@ -25,3 +28,4 @@ jobs:
           tenant-id: ${{ secrets.TENANT_ID }}
           solution-file: contoso_university_core_managed.zip
           authentication-type: clientsecret
+          log-level: verbose
