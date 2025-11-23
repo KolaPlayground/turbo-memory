@@ -20,6 +20,16 @@ jobs:
       - name: List downloaded files
         shell: powershell
         run: Get-ChildItem -Recurse
+      - name: Test environment connectivity
+        shell: powershell
+        run: |
+          $url = "https://kolapg.crm4.dynamics.com/XRMServices/2011/Organization.svc/web"
+          try {
+            $response = Invoke-WebRequest -Uri $url -Method Head -TimeoutSec 30
+            Write-Host "Connection successful: $($response.StatusCode)"
+          } catch {
+            Write-Host "Connection failed: $_"
+          }
       - uses: microsoft/powerplatform-actions/actions-install@v1
       - uses: microsoft/powerplatform-actions/import-solution@v1
         with:
